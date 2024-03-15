@@ -1,5 +1,5 @@
 - name: Local test
-  hosts: all
+  hosts: local
   tasks:
   - name: Simple task
     cron:
