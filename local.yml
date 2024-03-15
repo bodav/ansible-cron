@@ -5,4 +5,4 @@
     cron:
       name: "test task"
       minute: "0"
-      job: "echo 'testing'"
+      job: "echo \"testing\""
