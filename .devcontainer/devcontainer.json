@@ -1,0 +1,23 @@
+{
+    "name": "ansible-devcontainer",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "containerEnv": {
+      "ANSIBLE_VERBOSITY": "2",
+      "ANSIBLE_HOST_KEY_CHECKING": "False",
+      "ANSIBLE_INVENTORY": "hosts"
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "redhat.ansible",
+          "ms-azuretools.vscode-docker",
+          "esbenp.prettier-vscode"
+        ],
+        "settings": {
+          "terminal.integrated.defaultProfile.linux": "zsh"
+        }
+      }
+    }
+  }
