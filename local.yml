@@ -1,8 +1,8 @@
 - name: Local test
-  hosts: local
+  hosts: all
   tasks:
     - name: Simple task
       ansible.builtin.cron:
         name: "test task"
-        minute: "*"
+        minute: "*/2"
         job: "echo \"testing\""
