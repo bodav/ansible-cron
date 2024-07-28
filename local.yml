@@ -5,4 +5,4 @@
       ansible.builtin.cron:
         name: "test task"
         minute: "*/2"
-        job: "echo \"testing123\""
+        job: "ansible-playbook --limit local /opt/cron/playbooks/ping.yml"
