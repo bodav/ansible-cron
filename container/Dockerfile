@@ -8,6 +8,6 @@ RUN chmod +x entrypoint.sh
 
 ENV ANSIBLE_VERBOSITY=2
 ENV ANSIBLE_HOST_KEY_CHECKING=false
-ENV ANSIBLE_INVENTORY=hosts.yaml
+ENV ANSIBLE_INVENTORY=/opt/cron/hosts.yaml
 
 ENTRYPOINT ["./entrypoint.sh"]
