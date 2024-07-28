@@ -1,8 +1,6 @@
 #!/bin/sh
 
-ansible-pull -U $REPO -d /opt/cron -i hosts.yaml
-
-echo $ANSIBLE_USER
+ansible-pull -U $REPO -d /opt/cron
 
 echo "########################"
 crontab -l
