@@ -6,4 +6,8 @@ RUN rm -f /tmp/* /etc/apk/cache/*
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
+ENV ANSIBLE_VERBOSITY=2
+ENV ANSIBLE_HOST_KEY_CHECKING=false
+ENV ANSIBLE_INVENTORY=hosts.yaml
+
 ENTRYPOINT ["./entrypoint.sh"]
