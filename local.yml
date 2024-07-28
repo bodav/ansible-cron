@@ -5,4 +5,4 @@
       ansible.builtin.cron:
         name: "test task"
         minute: "*/2"
-        job: "ansible-playbook -i prod, /opt/cron/playbooks/ping.yml"
+        job: "ansible-playbook --limit prod /opt/cron/playbooks/ping.yml"
