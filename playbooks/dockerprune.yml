@@ -1,6 +1,9 @@
 - name: Docker prune
   hosts: all
   become: true
+  gather_facts: false
+  vars:
+    gotify_url: '{{ lookup("env", "GOTIFY_URL") }}'
   tasks:
     - name: Docker system prune
       ansible.builtin.command: "docker system prune --all --force"
@@ -10,3 +13,12 @@
     - name: Show prune result
       ansible.builtin.debug:
         msg: "{{ prune.stdout_lines }}"
+
+    - name: Send Gotify Message
+      ansible.builtin.uri:
+        url: "{{ gotify_url }}"
+        method: POST
+        body_format: json
+        body:
+          title: Docker prune result
+          message: "{{ prune.stdout }}"

@@ -6,3 +6,4 @@ services:
       - REPO=https://github.com/bodav/ansible-cron
       - ANSIBLE_PASSWORD=${ANSIBLE_PWD}
       - ANSIBLE_USER=${ANSIBLE_USER}
+      - GOTIFY_URL=${GOTIFY_URL}

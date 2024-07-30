@@ -1,6 +1,8 @@
 - name: Update and upgrade apt packages
   hosts: all
   become: true
+  vars:
+    gotify_url: '{{ lookup("env", "GOTIFY_URL") }}'
   tasks:
     - name: Update and upgrade apt packages
       ansible.builtin.apt:
@@ -12,3 +14,12 @@
     - name: Show apt result
       ansible.builtin.debug:
         msg: "{{ apt.stdout_lines }}"
+
+    - name: Send Gotify Message
+      ansible.builtin.uri:
+        url: "{{ gotify_url }}"
+        method: POST
+        body_format: json
+        body:
+          title: apt upgrade result
+          message: "{{ apt.stdout }}"
