@@ -6,8 +6,8 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME:  bodav/lgtvapiproxy
-  PACKAGE_NAME:  lgtvapiproxy
+  IMAGE_NAME:  ${{ github.repository }}
+  PACKAGE_NAME:  ansiblecron
 
 jobs:
   build-and-push-image:
