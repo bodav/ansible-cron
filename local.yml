@@ -1,8 +1,20 @@
 - name: Local test
   hosts: all
   tasks:
-    - name: Simple task
+    # - name: Simple task
+    #   ansible.builtin.cron:
+    #     name: "test task"
+    #     minute: "*/2"
+    #     job: "ansible-playbook --limit prod /opt/cron/playbooks/ping.yml"
+
+    - name: Apt update and upgrade
       ansible.builtin.cron:
-        name: "test task"
-        minute: "*/2"
-        job: "ansible-playbook --limit prod /opt/cron/playbooks/ping.yml"
+        name: "apt update upgrade"
+        minute: "*/5"
+        job: "ansible-playbook --limit prod /opt/cron/playbooks/aptupgrade.yml"
+
+    - name: Docker prune
+      ansible.builtin.cron:
+        name: "docker prune"
+        minute: "*/8"
+        job: "ansible-playbook --limit prod /opt/cron/playbooks/dockerprune.yml"
