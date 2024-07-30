@@ -1,7 +1,6 @@
 FROM alpine:edge
 
-RUN apk add git python3 ansible ansible-lint py3-pip openssh sshpass
-RUN rm -f /tmp/* /etc/apk/cache/*
+RUN apk add --no-cache git python3 ansible ansible-lint py3-pip openssh sshpass
 
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
