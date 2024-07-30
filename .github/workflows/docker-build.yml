@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME:  ${{ github.repository }}
-  PACKAGE_NAME:  ansiblecron
+  PACKAGE_NAME:  ansible-cron
 
 jobs:
   build-and-push-image:
