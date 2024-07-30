@@ -3,10 +3,12 @@
     "build": {
       "dockerfile": "Dockerfile"
     },
+    "runArgs": ["--env-file",".devcontainer/ansible.env"],
     "containerEnv": {
       "ANSIBLE_VERBOSITY": "2",
       "ANSIBLE_HOST_KEY_CHECKING": "False",
-      "ANSIBLE_INVENTORY": "hosts"
+      "ANSIBLE_INVENTORY": "hosts.yaml",
+      "ANSIBLE_STDOUT_CALLBACK": "yaml"
     },
     "customizations": {
       "vscode": {

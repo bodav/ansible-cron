@@ -1,2 +1,3 @@
 container/.env
 .DS_Store
+.devcontainer/ansible.env

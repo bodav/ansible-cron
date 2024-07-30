@@ -1,0 +1,12 @@
+- name: Docker prune
+  hosts: all
+  become: true
+  tasks:
+    - name: Docker system prune
+      ansible.builtin.command: "docker system prune --all --force"
+      register: prune
+      changed_when: false
+
+    - name: Show prune result
+      ansible.builtin.debug:
+        msg: "{{ prune.stdout_lines }}"
