@@ -47,7 +47,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Cleanup packages
-        uses: actions/delete-package-versions@v4
+        uses: actions/delete-package-versions@v5
         with:
           package-name: ${{ env.PACKAGE_NAME }}
           package-type: 'container'
