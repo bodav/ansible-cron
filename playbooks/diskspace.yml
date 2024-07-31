@@ -1,0 +1,23 @@
+- name: Get disk space
+  hosts: all
+  become: true
+  vars:
+    gotify_url: '{{ lookup("env", "GOTIFY_URL") }}'
+  tasks:
+    - name: Get disk space
+      ansible.builtin.command: "df -h /"
+      register: space
+      changed_when: false
+
+    - name: Show df result
+      ansible.builtin.debug:
+        msg: "{{ space.stdout_lines }}"
+
+    - name: Send Gotify Message
+      ansible.builtin.uri:
+        url: "{{ gotify_url }}"
+        method: POST
+        body_format: json
+        body:
+          title: Disk space state
+          message: "{{ space.stdout }}"

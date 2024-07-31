@@ -21,3 +21,13 @@
         month: "*"
         weekday: "6"
         job: "ansible-playbook --limit prod /opt/cron/playbooks/aptupgrade.yml"
+
+    - name: Get disk space state
+      ansible.builtin.cron:
+        name: "disk space state"
+        minute: "0"
+        hour: "3"
+        day: "*"
+        month: "*"
+        weekday: "6"
+        job: "ansible-playbook --limit prod /opt/cron/playbooks/diskspace.yml"
